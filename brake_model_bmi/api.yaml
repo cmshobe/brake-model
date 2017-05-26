@@ -1,0 +1,8 @@
+name: Brake
+language: python
+
+package: brake
+class: BmiBrake
+
+build: 
+  - python setup.py install

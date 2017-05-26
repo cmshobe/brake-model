@@ -1,0 +1,141 @@
+n_cells:
+  description: Number of cells along channel profile
+  value:
+    type: int
+    default: 100
+    range:
+      min: 0
+      max: 100000
+dx:
+  description: Distance between cell centers along channel profile
+  value:
+    type: float
+    default: 100
+    range:
+      min: 0
+      max: 100000
+delay_timescale:
+  description: Time over which incision rate is averaged to determine block delivery
+  value:
+    type: float
+    default: 10000.
+    range:
+      min: 1000.
+      max: 1000000.
+time_step:
+  description: Time step in years
+  value:
+    type: float
+    default: 10.
+    range:
+      min: 0.01
+      max: 100
+time_to_run:
+  description: Total run time in years
+  value:
+    type: int
+    default: 200000
+    range:
+      min: 1
+      max: 10000000
+bl_drop:
+  description: Baselevel lowering rate at downstream outlet [m/yr]
+  value:
+    type: float
+    default: 0.00005
+    range:
+      min: 0.000001
+      max: 0.1
+bed_k:
+  description: Erodibility coefficient for bedrock on the channel bed
+  value:
+    type: float
+    default: 1.0e-6
+    range:
+      min: 1.0e-10
+      max: 1.0e-2
+block_k:
+  description: Erodibility coefficient for blocks
+  value:
+    type: float
+    default: 1.0e-6
+    range:
+      min: 1.0e-10
+      max: 1.0e-2
+gamma:
+  description: Coeff. governing linear relationship between incision and block delivery
+  value:
+    type: float
+    default: 1.0
+    range:
+      min: 0.0
+      max: 10.0
+side_length:
+  description: Side length of cubic blocks delivered to the channel
+  value:
+    type: int
+    default: 4.0
+    range:
+      min: 0.0
+      max: 10.0
+z_0:
+  description: Roughness length scale for flow resistance calculations
+  value:
+    type: float
+    default: 0.1
+    range:
+      min: 0.00001
+      max: 1.0
+bed_tau_c: 
+  description: Critical detachment shear stress for bedrock
+  value:
+    type: float
+    default: 0.
+    range:
+      min: 0.
+      max: 10000.
+block_tau_c:
+  description: Critical detachment shear stress for abrasion of blocks
+  value:
+    type: float
+    default: 0.
+    range:
+      min: 0.
+      max: 10000.
+channel_width:
+  description: Channel width [m], constant along the channel profile
+  value:
+    type: float
+    default: 10.
+    range:
+      min: 1.
+      max: 25.
+mean_discharge:
+  description: Mean discharge in m3/s.
+  value:
+    type: float
+    default: 15.0
+    range:
+      min: 1.0
+      max: 1000.0
+discharge_variability:
+  description: Unitless discharge variability for stretched exponential distribution
+  value:
+    type: int
+    default: 0.5
+    range:
+      min: 0.1
+      max: 2.0
+suffix:
+  description: String to append to output files or identification
+  value:
+    type: str
+    default: '1'
+recording_interval:
+  description: Number of cells along channel profile
+  value:
+    type: int
+    default: 1000
+    range:
+      min: 1
+      max: 10000000
