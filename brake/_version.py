@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Mar 15 22:13:51 2016
+Version updated 31 May 2017.
 
-@author: Charlie Shobe
+@author: Charles M. Shobe, University of Coloraro
 
 Current BRAKE version
 """
 
-__version__ = '0.03-dev'
+__version__ = '1.0-stable'
