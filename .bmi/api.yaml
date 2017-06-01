@@ -1,7 +1,7 @@
 name: Brake
 language: python
 
-package: brake
+package: brake.bmi_brake
 class: BmiBrake
 
 build: 
