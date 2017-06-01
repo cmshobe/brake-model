@@ -47,7 +47,6 @@ class BmiBrake(Bmi):
     def __init__(self):
         """Create a BmiBrake model that is ready for initialization."""
         self._brake_eroder = None
-        self._time = 0.
         self._values = {}
         self._var_units = {}
         self._grids = {}
@@ -194,7 +193,6 @@ class BmiBrake(Bmi):
     def update(self):
         """Advance model by one time step."""
         self._brake_eroder.update()
-        #self._time += self.get_time_step()
 
     def update_frac(self, time_frac):
         """Update model by a fraction of a time step.
@@ -411,7 +409,7 @@ class BmiBrake(Bmi):
 
     def get_current_time(self):
         """Current time of model."""
-        return self._time
+        return self._brake_eroder.time
 
     def get_time_step(self):
         """Time step of model."""
