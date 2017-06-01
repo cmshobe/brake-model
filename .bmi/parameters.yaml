@@ -6,6 +6,7 @@ n_cells:
     range:
       min: 0
       max: 100000
+    units: '-'
 dx:
   description: Distance between cell centers along channel profile
   value:
@@ -14,6 +15,7 @@ dx:
     range:
       min: 0
       max: 100000
+    units: 'm'
 delay_timescale:
   description: Time over which incision rate is averaged to determine block delivery
   value:
@@ -22,6 +24,7 @@ delay_timescale:
     range:
       min: 1000.
       max: 1000000.
+    units: 'yr'
 time_step:
   description: Time step in years
   value:
@@ -30,6 +33,7 @@ time_step:
     range:
       min: 0.01
       max: 100
+    units: 'yr'
 time_to_run:
   description: Total run time in years
   value:
@@ -38,6 +42,7 @@ time_to_run:
     range:
       min: 1
       max: 10000000
+    units: 'yr'
 bl_drop:
   description: Baselevel lowering rate at downstream outlet [m/yr]
   value:
@@ -46,6 +51,7 @@ bl_drop:
     range:
       min: 0.000001
       max: 0.1
+    units: 'm/yr'
 bed_k:
   description: Erodibility coefficient for bedrock on the channel bed
   value:
@@ -54,6 +60,7 @@ bed_k:
     range:
       min: 1.0e-10
       max: 1.0e-2
+    units: 'm2 yr kg-1'
 block_k:
   description: Erodibility coefficient for blocks
   value:
@@ -62,6 +69,7 @@ block_k:
     range:
       min: 1.0e-10
       max: 1.0e-2
+    units: 'm2 yr kg-1'
 gamma:
   description: Coeff. governing linear relationship between incision and block delivery
   value:
@@ -70,6 +78,7 @@ gamma:
     range:
       min: 0.0
       max: 10.0
+    units: 'm-2'
 side_length:
   description: Side length of cubic blocks delivered to the channel
   value:
@@ -78,6 +87,7 @@ side_length:
     range:
       min: 0.0
       max: 10.0
+    units: 'm'
 z_0:
   description: Roughness length scale for flow resistance calculations
   value:
@@ -86,6 +96,7 @@ z_0:
     range:
       min: 0.00001
       max: 1.0
+    units: 'm'
 bed_tau_c: 
   description: Critical detachment shear stress for bedrock
   value:
@@ -94,6 +105,7 @@ bed_tau_c:
     range:
       min: 0.
       max: 10000.
+    units: 'kg m-1 s-2'
 block_tau_c:
   description: Critical detachment shear stress for abrasion of blocks
   value:
@@ -102,6 +114,7 @@ block_tau_c:
     range:
       min: 0.
       max: 10000.
+    units: 'kg m-1 s-2'
 channel_width:
   description: Channel width [m], constant along the channel profile
   value:
@@ -110,6 +123,7 @@ channel_width:
     range:
       min: 1.
       max: 25.
+    units: 'm'
 mean_discharge:
   description: Mean discharge in m3/s.
   value:
@@ -118,6 +132,7 @@ mean_discharge:
     range:
       min: 1.0
       max: 1000.0
+    units: 'm3 s-1'
 discharge_variability:
   description: Unitless discharge variability for stretched exponential distribution
   value:
@@ -126,16 +141,18 @@ discharge_variability:
     range:
       min: 0.1
       max: 2.0
+    units: '-'
 suffix:
   description: String to append to output files or identification
   value:
     type: str
     default: '1'
 recording_interval:
-  description: Number of cells along channel profile
+  description: Time interval between recording data entries
   value:
     type: int
     default: 1000
     range:
       min: 1
       max: 10000000
+    units: 'yr'
