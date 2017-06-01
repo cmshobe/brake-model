@@ -23,7 +23,26 @@ class BmiBrake(Bmi):
     
     _name = 'The Blocky River and Knickpoint Evolution model'
     _input_var_names = ('topographic__elevation',)
-    _output_var_names = ('topographic__elevation',)
+    _output_var_names = ('topographic__elevation',
+                        'topographic__steepest_slope',
+                        'surface_water__discharge',
+                        'channel_water__mean_depth',
+                        'channel_bottom_water_flow__speed',
+                        'channel_bottom_water_flow__dimensionless_drag_stress',
+                        'channel_bottom_water_flow__magnitude_of_shear_stress',
+                        'channel_bottom_water_flow__magnitude_of_available_shear_stress',
+                        'bedrock__time_averaged_incision_rate',
+                        'channel__total_blocks',
+                        'blocks__side_length_0_to_1_meters',
+                        'blocks__side_length_1_to_2_meters',
+                        'blocks__side_length_2_to_3_meters',
+                        'blocks__side_length_3_to_4_meters',
+                        'blocks__side_length_4_to_5_meters',
+                        'blocks__side_length_5_to_6_meters',
+                        'blocks__side_length_6_to_7_meters',
+                        'blocks__side_length_7_to_8_meters',
+                        'blocks__side_length_8_to_9_meters',
+                        'blocks__side_length_9_to_10_meters',)
     
     def __init__(self):
         """Create a BmiBrake model that is ready for initialization."""
@@ -105,12 +124,68 @@ class BmiBrake(Bmi):
 
         self._values = {
             'topographic__elevation': self._brake_eroder.surface_elev_array,
+            'topographic__steepest_slope': self._brake_eroder.slope,
+            'surface_water__discharge': self._brake_eroder.q,
+            'channel_water__mean_depth': self._brake_eroder.flow_depth,
+            'channel_bottom_water_flow__speed': self._brake_eroder.flow_velocity,
+            'channel_bottom_water_flow__dimensionless_drag_stress': self._brake_eroder.sigma_d_array,
+            'channel_bottom_water_flow__magnitude_of_shear_stress': self._brake_eroder.uncorrected_tau_array,
+            'channel_bottom_water_flow__magnitude_of_available_shear_stress': self._brake_eroder.corrected_tau_array,
+            'bedrock__time_averaged_incision_rate': self._brake_eroder.time_avg_inc_rate_array,
+            'channel__total_blocks': self._brake_eroder.blocks_in_cells,
+            'blocks__side_length_0_to_1_meters': self._brake_eroder.zero_to_one_temp,
+            'blocks__side_length_1_to_2_meters': self._brake_eroder.one_to_two_temp,
+            'blocks__side_length_2_to_3_meters': self._brake_eroder.two_to_three_temp,
+            'blocks__side_length_3_to_4_meters': self._brake_eroder.three_to_four_temp,
+            'blocks__side_length_4_to_5_meters': self._brake_eroder.four_to_five_temp,
+            'blocks__side_length_5_to_6_meters': self._brake_eroder.five_to_six_temp,
+            'blocks__side_length_6_to_7_meters': self._brake_eroder.six_to_seven_temp,
+            'blocks__side_length_7_to_8_meters': self._brake_eroder.seven_to_eight_temp,
+            'blocks__side_length_8_to_9_meters': self._brake_eroder.eight_to_nine_temp,
+            'blocks__side_length_9_to_10_meters': self._brake_eroder.nine_to_ten_temp,
         }
         self._var_units = {
-            'topographic__elevation': 'm'
+            'topographic__elevation': 'm',
+            'topographic__steepest_slope': '-',
+            'surface_water__discharge': 'm2/s',
+            'channel_water__mean_depth': 'm',
+            'channel_bottom_water_flow__speed': 'm/s',
+            'channel_bottom_water_flow__dimensionless_drag_stress': '-',
+            'channel_bottom_water_flow__magnitude_of_shear_stress': 'Pa',
+            'channel_bottom_water_flow__magnitude_of_available_shear_stress': 'Pa',
+            'bedrock__time_averaged_incision_rate': 'm/yr',
+            'channel__total_blocks': '#',
+            'blocks__side_length_0_to_1_meters': '#',
+            'blocks__side_length_1_to_2_meters': '#',
+            'blocks__side_length_2_to_3_meters': '#',
+            'blocks__side_length_3_to_4_meters': '#',
+            'blocks__side_length_4_to_5_meters': '#',
+            'blocks__side_length_5_to_6_meters': '#',
+            'blocks__side_length_6_to_7_meters': '#',
+            'blocks__side_length_7_to_8_meters': '#',
+            'blocks__side_length_8_to_9_meters': '#',
+            'blocks__side_length_9_to_10_meters': '#',
         }
         self._grids = {
-            0: ['topographic__elevation']
+            0: ['topographic__elevation', 'topographic__steepest_slope',
+                'surface_water__discharge', 'channel_water__mean_depth',
+                'channel_bottom_water_flow__speed', 
+                'channel_bottom_water_flow__dimensionless_drag_stress',
+                'channel_bottom_water_flow__magnitude_of_shear_stress',
+                'channel_bottom_water_flow__magnitude_of_available_shear_stress',
+                'bedrock__time_averaged_incision_rate',
+                'channel__total_blocks',
+                'blocks__side_length_0_to_1_meters',
+                'blocks__side_length_1_to_2_meters',
+                'blocks__side_length_2_to_3_meters',
+                'blocks__side_length_3_to_4_meters',
+                'blocks__side_length_4_to_5_meters',
+                'blocks__side_length_5_to_6_meters',
+                'blocks__side_length_6_to_7_meters',
+                'blocks__side_length_7_to_8_meters',
+                'blocks__side_length_8_to_9_meters',
+                'blocks__side_length_9_to_10_meters',
+                ]
         }
         self._grid_type = {
             0: 'uniform_profile'

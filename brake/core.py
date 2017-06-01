@@ -1,6 +1,6 @@
 '''
 Charlie Shobe
-Ma7 26th, 2017
+May 26th, 2017
 
 BRAKE: Blocky River And Knickpoint Evolution
 
@@ -175,6 +175,10 @@ class Brake(object):
         np.save('three_to_four_' + self.suffix, self.three_to_four)
         np.save('four_to_five_' + self.suffix, self.four_to_five)
         np.save('five_to_six_' + self.suffix, self.five_to_six)
+        np.save('six_to_seven_' + self.suffix, self.six_to_seven)
+        np.save('seven_to_eight_' + self.suffix, self.seven_to_eight)
+        np.save('eight_to_nine_' + self.suffix, self.eight_to_nine)
+        np.save('nine_to_ten_' + self.suffix, self.nine_to_ten)
     
     def calc_shear_stress_with_roughness(self, pre_adjusted_tau, tracking_mat, is_block_in_cell, drag_cube, flow_depth, dx, roughness_height, slicing_index, cell):
         blocks_above_flow = (is_block_in_cell) #& (tracking_mat[0:slicing_index, 2] >= flow_depth)        
@@ -291,6 +295,10 @@ class Brake(object):
         self.three_to_four_temp = np.zeros(n_cells, dtype=np.float64)
         self.four_to_five_temp = np.zeros(n_cells, dtype=np.float64)
         self.five_to_six_temp = np.zeros(n_cells, dtype=np.float64)
+        self.six_to_seven_temp = np.zeros(n_cells, dtype=np.float64)
+        self.seven_to_eight_temp = np.zeros(n_cells, dtype=np.float64)
+        self.eight_to_nine_temp = np.zeros(n_cells, dtype=np.float64)
+        self.nine_to_ten_temp = np.zeros(n_cells, dtype=np.float64)
         self.record_count = 0
         self.slope[:] = initial_slope
         self.old_surf_elev_array[:] = surface_elevation
@@ -312,6 +320,10 @@ class Brake(object):
         self.three_to_four = np.zeros((number_records + 1, n_cells), dtype = np.float64)
         self.four_to_five = np.zeros((number_records + 1, n_cells), dtype = np.float64)
         self.five_to_six = np.zeros((number_records + 1, n_cells), dtype = np.float64)
+        self.six_to_seven = np.zeros((number_records + 1, n_cells), dtype = np.float64)
+        self.seven_to_eight = np.zeros((number_records + 1, n_cells), dtype = np.float64)
+        self.eight_to_nine = np.zeros((number_records + 1, n_cells), dtype = np.float64)
+        self.nine_to_ten = np.zeros((number_records + 1, n_cells), dtype = np.float64)
         #initial values
         self.time_record[0] = 0
         self.surface_elev_record[0, :] = surface_elev_array
@@ -470,6 +482,10 @@ class Brake(object):
         self.three_to_four_temp[x] = sum(sizes[(sizes > 3) & (sizes <= 4)])
         self.four_to_five_temp[x] = sum(sizes[(sizes > 4) & (sizes <= 5)])
         self.five_to_six_temp[x] = sum(sizes[(sizes > 5) & (sizes <= 6)])
+        self.six_to_seven_temp[x] = sum(sizes[(sizes > 5) & (sizes <= 6)])
+        self.seven_to_eight_temp[x] = sum(sizes[(sizes > 5) & (sizes <= 6)])
+        self.eight_to_nine_temp[x] = sum(sizes[(sizes > 5) & (sizes <= 6)])
+        self.nine_to_ten_temp[x] = sum(sizes[(sizes > 5) & (sizes <= 6)])
         
     def track_vertical_erosion(self):
         self.incision_rate_array = abs(self.surface_elev_array - self.old_surf_elev_array)/ self.time_step
@@ -502,6 +518,10 @@ class Brake(object):
         self.three_to_four[self.record_count, :] = self.three_to_four_temp
         self.four_to_five[self.record_count, :] = self.four_to_five_temp
         self.five_to_six[self.record_count, :] = self.five_to_six_temp
+        self.six_to_seven[self.record_count, :] = self.six_to_seven_temp
+        self.seven_to_eight[self.record_count, :] = self.seven_to_eight_temp
+        self.eight_to_nine[self.record_count, :] = self.eight_to_nine_temp
+        self.nine_to_ten[self.record_count, :] = self.nine_to_ten_temp
         
     def delete_eroded_or_gone_blocks(self):
         #now find and delete any tracking rows where blocks have degraded to 0.
