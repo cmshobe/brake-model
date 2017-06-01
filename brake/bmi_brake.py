@@ -120,7 +120,7 @@ class BmiBrake(Bmi):
         0.49175221   0.39175185   0.29172919   0.19061605   0.05      ]
         >>> eroder.finalize()
         """
-        self._brake_eroder = Brake(config_file='brake.yaml')
+        self._brake_eroder = Brake(config_file=filename)
 
         self._values = {
             'topographic__elevation': self._brake_eroder.surface_elev_array,
