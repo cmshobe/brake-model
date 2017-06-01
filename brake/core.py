@@ -45,6 +45,8 @@ class Brake(object):
             self.discharge_variability = 0.5
             self.suffix = '1'
             self.recording_interval = 1000.
+
+        self.q = 0.0  # provide initial value
             
         self.calculate_timing_and_recording_vars(self.recording_interval, 
                                                  self.time_to_run, 
@@ -91,7 +93,7 @@ class Brake(object):
         self.calculate_initial_array_values(number_of_pieces, self.x_array, 
                                             self.dx, self.channel_width, 
                                             self.side_length)        
-    
+
     def update(self):
         self.time += self.time_step
         self.run_count += 1
