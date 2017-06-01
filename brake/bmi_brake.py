@@ -407,7 +407,7 @@ class BmiBrake(Bmi):
 
     def get_end_time(self):
         """End time of model."""
-        return np.finfo('d').max
+        return self._brake_eroder.time_to_run
 
     def get_current_time(self):
         """Current time of model."""
