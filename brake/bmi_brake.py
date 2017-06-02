@@ -8,9 +8,7 @@ Basic Model Interface implementation for BRaKE
 26 May 2017-- CSDMS BMI hackathon
 """
 
-import types
 import numpy as np
-import yaml
 from basic_modeling_interface import Bmi
 
 from .core import Brake
