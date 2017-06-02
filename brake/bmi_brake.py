@@ -8,9 +8,7 @@ Basic Model Interface implementation for BRaKE
 26 May 2017-- CSDMS BMI hackathon
 """
 
-import types
 import numpy as np
-import yaml
 from basic_modeling_interface import Bmi
 
 from .core import Brake
@@ -47,7 +45,6 @@ class BmiBrake(Bmi):
     def __init__(self):
         """Create a BmiBrake model that is ready for initialization."""
         self._brake_eroder = None
-        self._time = 0.
         self._values = {}
         self._var_units = {}
         self._grids = {}
@@ -120,7 +117,7 @@ class BmiBrake(Bmi):
         0.49175221   0.39175185   0.29172919   0.19061605   0.05      ]
         >>> eroder.finalize()
         """
-        self._brake_eroder = Brake(config_file='brake.yaml')
+        self._brake_eroder = Brake(config_file=filename)
 
         self._values = {
             'topographic__elevation': self._brake_eroder.surface_elev_array,
@@ -194,7 +191,6 @@ class BmiBrake(Bmi):
     def update(self):
         """Advance model by one time step."""
         self._brake_eroder.update()
-        #self._time += self.get_time_step()
 
     def update_frac(self, time_frac):
         """Update model by a fraction of a time step.
@@ -407,11 +403,11 @@ class BmiBrake(Bmi):
 
     def get_end_time(self):
         """End time of model."""
-        return np.finfo('d').max
+        return self._brake_eroder.time_to_run
 
     def get_current_time(self):
         """Current time of model."""
-        return self._time
+        return self._brake_eroder.time
 
     def get_time_step(self):
         """Time step of model."""
