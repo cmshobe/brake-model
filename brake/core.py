@@ -10,7 +10,7 @@ Changed in structure and pared down for BMI at CSDMS BMI hackathon 26-May-2017
 from __future__ import division
 import numpy as np
 import scipy.special as sp
-import yaml
+import ruamel_yaml as yaml
 import sys
 import os
 np.set_printoptions(threshold=np.inf)
