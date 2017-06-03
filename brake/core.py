@@ -22,7 +22,7 @@ class Brake(object):
         
         if config_file is not None:
             with open(config_file, 'r') as fp:
-                parameters = yaml.load(fp)
+                parameters = yaml.safe_load(fp)
             for key, value in parameters.items():
                 setattr(self, key, value)
         else:
