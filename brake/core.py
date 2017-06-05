@@ -10,7 +10,7 @@ Changed in structure and pared down for BMI at CSDMS BMI hackathon 26-May-2017
 from __future__ import division
 import numpy as np
 import scipy.special as sp
-import ruamel_yaml as yaml
+import ruamel.yaml as yaml
 import sys
 import os
 np.set_printoptions(threshold=np.inf)
@@ -22,7 +22,7 @@ class Brake(object):
         
         if config_file is not None:
             with open(config_file, 'r') as fp:
-                parameters = yaml.load(fp)
+                parameters = yaml.safe_load(fp)
             for key, value in parameters.items():
                 setattr(self, key, value)
         else:
