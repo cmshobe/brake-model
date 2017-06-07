@@ -2,3 +2,11 @@ url: https://csdms.colorado.edu/wiki/Model:BRaKE
 author: Charles M. Shobe
 email: charles.shobe@colorado.edu
 version: 1.0
+summary:
+  "BRaKE is a 1-D bedrock channel profile evolution model. It
+  calculates bedrock erosion in addition to treating the delivery,
+  transport, degradation, and erosion-inhibiting effects of large,
+  hillslope-derived blocks of rock. It uses a shear-stress bedrock
+  erosion formulation with additional complexity related to flow
+  resistance, block transport and erosion, and delivery of blocks from
+  the hillslopes."
