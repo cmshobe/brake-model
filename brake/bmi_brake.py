@@ -391,7 +391,7 @@ class BmiBrake(Bmi):
 
     def get_grid_origin(self, grid_id):
         """Origin of uniform rectilinear grid."""
-        return (0., 0.)
+        return 0.
 
     def get_grid_type(self, grid_id):
         """Type of grid."""
