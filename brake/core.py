@@ -46,7 +46,7 @@ class Brake(object):
             self.suffix = '1'
             self.recording_interval = 1000.
 
-        self.q = 0.0  # provide initial value
+        self.q = np.zeros(1)  # provide initial value
             
         self.calculate_timing_and_recording_vars(self.recording_interval, 
                                                  self.time_to_run, 
