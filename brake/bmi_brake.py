@@ -143,11 +143,11 @@ class BmiBrake(Bmi):
         }
         self._var_units = {
             'topographic__elevation': 'm',
-            'topographic__steepest_slope': '-',
+            'topographic__steepest_slope': '',
             'surface_water__discharge': 'm2/s',
             'channel_water__mean_depth': 'm',
             'channel_bottom_water_flow__speed': 'm/s',
-            'channel_bottom_water_flow__dimensionless_drag_stress': '-',
+            'channel_bottom_water_flow__dimensionless_drag_stress': '',
             'channel_bottom_water_flow__magnitude_of_shear_stress': 'Pa',
             'channel_bottom_water_flow__magnitude_of_available_shear_stress': 'Pa',
             'bedrock__time_averaged_incision_rate': 'm/yr',
