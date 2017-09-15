@@ -387,7 +387,7 @@ class BmiBrake(Bmi):
 
     def get_grid_spacing(self, grid_id):
         """Spacing of rows and columns of uniform rectilinear grid."""
-        return self._brake_eroder.spacing
+        return self._brake_eroder.dx
 
     def get_grid_origin(self, grid_id):
         """Origin of uniform rectilinear grid."""
