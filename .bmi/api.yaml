@@ -3,6 +3,7 @@ language: python
 
 package: brake.bmi_brake
 class: BmiBrake
+initialize_args: brake.yaml
 
 build: 
   - python setup.py install

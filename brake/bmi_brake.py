@@ -143,25 +143,25 @@ class BmiBrake(Bmi):
         }
         self._var_units = {
             'topographic__elevation': 'm',
-            'topographic__steepest_slope': '-',
+            'topographic__steepest_slope': '',
             'surface_water__discharge': 'm2/s',
             'channel_water__mean_depth': 'm',
             'channel_bottom_water_flow__speed': 'm/s',
-            'channel_bottom_water_flow__dimensionless_drag_stress': '-',
+            'channel_bottom_water_flow__dimensionless_drag_stress': '',
             'channel_bottom_water_flow__magnitude_of_shear_stress': 'Pa',
             'channel_bottom_water_flow__magnitude_of_available_shear_stress': 'Pa',
             'bedrock__time_averaged_incision_rate': 'm/yr',
-            'channel__total_blocks': '#',
-            'blocks__side_length_0_to_1_meters': '#',
-            'blocks__side_length_1_to_2_meters': '#',
-            'blocks__side_length_2_to_3_meters': '#',
-            'blocks__side_length_3_to_4_meters': '#',
-            'blocks__side_length_4_to_5_meters': '#',
-            'blocks__side_length_5_to_6_meters': '#',
-            'blocks__side_length_6_to_7_meters': '#',
-            'blocks__side_length_7_to_8_meters': '#',
-            'blocks__side_length_8_to_9_meters': '#',
-            'blocks__side_length_9_to_10_meters': '#',
+            'channel__total_blocks': '1',
+            'blocks__side_length_0_to_1_meters': '1',
+            'blocks__side_length_1_to_2_meters': '1',
+            'blocks__side_length_2_to_3_meters': '1',
+            'blocks__side_length_3_to_4_meters': '1',
+            'blocks__side_length_4_to_5_meters': '1',
+            'blocks__side_length_5_to_6_meters': '1',
+            'blocks__side_length_6_to_7_meters': '1',
+            'blocks__side_length_7_to_8_meters': '1',
+            'blocks__side_length_8_to_9_meters': '1',
+            'blocks__side_length_9_to_10_meters': '1',
         }
         self._grids = {
             0: ['topographic__elevation', 'topographic__steepest_slope',
@@ -387,11 +387,11 @@ class BmiBrake(Bmi):
 
     def get_grid_spacing(self, grid_id):
         """Spacing of rows and columns of uniform rectilinear grid."""
-        return self._brake_eroder.spacing
+        return self._brake_eroder.dx
 
     def get_grid_origin(self, grid_id):
         """Origin of uniform rectilinear grid."""
-        return (0., 0.)
+        return 0.
 
     def get_grid_type(self, grid_id):
         """Type of grid."""
